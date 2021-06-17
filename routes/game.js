@@ -9,7 +9,6 @@ let Game = require("../models/game.model");
 //     .catch((err) => res.status.json("Error:" + err));
 // });
 
-
 // create game by taking host name
 router.route("/add").post((req, res) => {
   const new_game = {
@@ -46,7 +45,7 @@ router.route("/join").post((req, res) => {
 });
 // get gamedata by taking gameid as input
 router.route("/getgame").get((req, res) => {
-  const gameid = req.body.gameid;
+  const gameid = req.query.gameid;
   Game.findById(gameid)
     .then((game) => {
       res.json(game);
